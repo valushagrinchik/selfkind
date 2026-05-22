@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    /* Language */
+    "target": "ES2021",
+
+    /* Modules */
+    "module": "commonjs",
+
+    /* Output */
+    "outDir": "./dist",
+    "sourceMap": true,
+
+    /* Decorators (NestJS) */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    /* Interop */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    /* Strictness */
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+
+    /* DX */
+    "skipLibCheck": true,
+    "incremental": true,
+
+    /* Paths */
+    "baseUrl": "./",
+
+    /* Node */
+    "types": ["node"],
+
+    /* Helpers */
+    "removeComments": true
+  },
+
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
