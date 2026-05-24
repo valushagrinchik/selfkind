@@ -22,3 +22,13 @@ model SelfTrustMoment {
   difficulty    Int?
   createdAt     DateTime @default(now())
 }
+
+model ThankfulnessMoment {
+  id        String   @id @default(cuid())
+  userId    String
+  situation String
+  person    String
+  action    String
+  feelings  String
+  createdAt DateTime @default(now())
+}

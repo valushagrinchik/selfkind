@@ -384,7 +384,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  SelfTrustMoment: 'SelfTrustMoment'
+  SelfTrustMoment: 'SelfTrustMoment',
+  ThankfulnessMoment: 'ThankfulnessMoment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -400,7 +401,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "selfTrustMoment"
+    modelProps: "selfTrustMoment" | "thankfulnessMoment"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -478,6 +479,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ThankfulnessMoment: {
+      payload: Prisma.$ThankfulnessMomentPayload<ExtArgs>
+      fields: Prisma.ThankfulnessMomentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ThankfulnessMomentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThankfulnessMomentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ThankfulnessMomentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThankfulnessMomentPayload>
+        }
+        findFirst: {
+          args: Prisma.ThankfulnessMomentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThankfulnessMomentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ThankfulnessMomentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThankfulnessMomentPayload>
+        }
+        findMany: {
+          args: Prisma.ThankfulnessMomentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThankfulnessMomentPayload>[]
+        }
+        create: {
+          args: Prisma.ThankfulnessMomentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThankfulnessMomentPayload>
+        }
+        createMany: {
+          args: Prisma.ThankfulnessMomentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ThankfulnessMomentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThankfulnessMomentPayload>[]
+        }
+        delete: {
+          args: Prisma.ThankfulnessMomentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThankfulnessMomentPayload>
+        }
+        update: {
+          args: Prisma.ThankfulnessMomentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThankfulnessMomentPayload>
+        }
+        deleteMany: {
+          args: Prisma.ThankfulnessMomentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ThankfulnessMomentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ThankfulnessMomentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThankfulnessMomentPayload>[]
+        }
+        upsert: {
+          args: Prisma.ThankfulnessMomentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ThankfulnessMomentPayload>
+        }
+        aggregate: {
+          args: Prisma.ThankfulnessMomentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateThankfulnessMoment>
+        }
+        groupBy: {
+          args: Prisma.ThankfulnessMomentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ThankfulnessMomentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ThankfulnessMomentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ThankfulnessMomentCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -529,6 +604,19 @@ export const SelfTrustMomentScalarFieldEnum = {
 } as const
 
 export type SelfTrustMomentScalarFieldEnum = (typeof SelfTrustMomentScalarFieldEnum)[keyof typeof SelfTrustMomentScalarFieldEnum]
+
+
+export const ThankfulnessMomentScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  situation: 'situation',
+  person: 'person',
+  action: 'action',
+  feelings: 'feelings',
+  createdAt: 'createdAt'
+} as const
+
+export type ThankfulnessMomentScalarFieldEnum = (typeof ThankfulnessMomentScalarFieldEnum)[keyof typeof ThankfulnessMomentScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -727,6 +815,7 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   selfTrustMoment?: Prisma.SelfTrustMomentOmit
+  thankfulnessMoment?: Prisma.ThankfulnessMomentOmit
 }
 
 /* Types for Logging */

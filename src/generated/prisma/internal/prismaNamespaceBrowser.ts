@@ -51,7 +51,8 @@ export const AnyNull = runtime.AnyNull
 
 
 export const ModelName = {
-  SelfTrustMoment: 'SelfTrustMoment'
+  SelfTrustMoment: 'SelfTrustMoment',
+  ThankfulnessMoment: 'ThankfulnessMoment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -82,6 +83,19 @@ export const SelfTrustMomentScalarFieldEnum = {
 } as const
 
 export type SelfTrustMomentScalarFieldEnum = (typeof SelfTrustMomentScalarFieldEnum)[keyof typeof SelfTrustMomentScalarFieldEnum]
+
+
+export const ThankfulnessMomentScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  situation: 'situation',
+  person: 'person',
+  action: 'action',
+  feelings: 'feelings',
+  createdAt: 'createdAt'
+} as const
+
+export type ThankfulnessMomentScalarFieldEnum = (typeof ThankfulnessMomentScalarFieldEnum)[keyof typeof ThankfulnessMomentScalarFieldEnum]
 
 
 export const SortOrder = {

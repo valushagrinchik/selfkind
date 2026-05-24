@@ -1,27 +1,26 @@
 import { Injectable } from '@nestjs/common';
 
-import { CreateTrustMomentInput } from './trust.types';
+import { CreateThankfulnessMomentInput } from './thankfulness.types';
 import { PrismaService } from 'src/database/prisma.service';
 
 
 @Injectable()
-export class TrustService {
+export class ThankfulnessService {
     constructor(
         private readonly prisma: PrismaService,
     ) { }
 
     // создать запись
     async createMoment(
-        input: CreateTrustMomentInput,
+        input: CreateThankfulnessMomentInput,
     ) {
-        return this.prisma.selfTrustMoment.create({
+        return this.prisma.thankfulnessMoment.create({
             data: {
                 userId: input.userId,
                 situation: input.situation,
-                selfSignal: input.selfSignal,
-                chosenAction: input.chosenAction,
-                feelingsAfter: input.feelingsAfter,
-                ...(input.difficulty ? { difficulty: +input.difficulty } : {})
+                person: input.person,
+                action: input.action,
+                feelings: input.feelings,
             },
         });
     }
@@ -31,7 +30,7 @@ export class TrustService {
         userId: string,
         limit = 10,
     ) {
-        return this.prisma.selfTrustMoment.findMany({
+        return this.prisma.thankfulnessMoment.findMany({
             where: {
                 userId,
             },
@@ -43,7 +42,7 @@ export class TrustService {
     }
 
     async getTimeline(userId: string) {
-        return this.prisma.selfTrustMoment.findMany({
+        return this.prisma.thankfulnessMoment.findMany({
             where: {
                 userId,
             },
@@ -61,7 +60,7 @@ export class TrustService {
         id: string,
         userId: string,
     ) {
-        return this.prisma.selfTrustMoment.findFirst({
+        return this.prisma.thankfulnessMoment.findFirst({
             where: {
                 id,
                 userId,
@@ -71,7 +70,7 @@ export class TrustService {
 
     // количество записей
     async getMomentsCount(userId: string) {
-        return this.prisma.selfTrustMoment.count({
+        return this.prisma.thankfulnessMoment.count({
             where: {
                 userId,
             },
@@ -83,7 +82,7 @@ export class TrustService {
         id: string,
         userId: string,
     ) {
-        return this.prisma.selfTrustMoment.deleteMany({
+        return this.prisma.thankfulnessMoment.deleteMany({
             where: {
                 id,
                 userId,
@@ -93,13 +92,13 @@ export class TrustService {
 
     // статистика
     async getStats(userId: string) {
-        const total = await this.prisma.selfTrustMoment.count({
+        const total = await this.prisma.thankfulnessMoment.count({
             where: {
                 userId,
             },
         });
 
-        const recent = await this.prisma.selfTrustMoment.findMany({
+        const recent = await this.prisma.thankfulnessMoment.findMany({
             where: {
                 userId,
             },

@@ -1,9 +1,7 @@
 export type FlowType =
-    | 'idle'
     | 'self_trust'
-    | 'self_criticism'
-    | 'anxiety_test'
-    | 'bass_durkee_test';
+    | 'thankfulness';
+
 
 export interface UserState {
     flow: FlowType;

@@ -9,4 +9,5 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/SelfTrustMoment'
+export type * from './models/ThankfulnessMoment'
 export type * from './commonInputTypes'

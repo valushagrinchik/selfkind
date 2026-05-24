@@ -44,3 +44,8 @@ export { Prisma }
  * 
  */
 export type SelfTrustMoment = Prisma.SelfTrustMomentModel
+/**
+ * Model ThankfulnessMoment
+ * 
+ */
+export type ThankfulnessMoment = Prisma.ThankfulnessMomentModel

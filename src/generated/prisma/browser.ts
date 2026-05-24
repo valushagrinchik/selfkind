@@ -22,3 +22,8 @@ export * from './enums';
  * 
  */
 export type SelfTrustMoment = Prisma.SelfTrustMomentModel
+/**
+ * Model ThankfulnessMoment
+ * 
+ */
+export type ThankfulnessMoment = Prisma.ThankfulnessMomentModel
