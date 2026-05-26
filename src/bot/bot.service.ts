@@ -6,7 +6,7 @@ import { StateManager } from '../state/state.manager';
 import { ThankfulnessHandler } from './handlers/thankfulness.handler';
 import { ScenarioButtons, ScenarioType } from './bot.scenarios';
 @Injectable()
-export class BotService implements OnModuleInit {
+export class BotService {
     private bot: Telegraf;
     mainMenu: Markup.Markup<InlineKeyboardMarkup>;
 
@@ -22,7 +22,7 @@ export class BotService implements OnModuleInit {
         ])
     }
 
-    async onModuleInit() {
+    async launch() {
         console.log('Starting Telegram bot...');
         // START MENU
         this.bot.start(async (ctx) => {
