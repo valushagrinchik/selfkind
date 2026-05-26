@@ -5,6 +5,7 @@ import { PrismaModule } from './database/prisma.module';
 import { RedisModule } from './redis/redis.module';
 import { TrustModule } from './trust/trust.module';
 import { ThankfulnessModule } from './thankfulness/thankfulness.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { ThankfulnessModule } from './thankfulness/thankfulness.module';
     TrustModule,
     ThankfulnessModule,
   ],
-  controllers: [],
+  controllers: [AppController],
   providers: [],
 })
 export class AppModule { }
